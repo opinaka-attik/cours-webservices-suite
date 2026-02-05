@@ -1,0 +1,18 @@
+networks:
+  net-server:
+  net-client:
+
+services:
+  ws-server:
+    build: ./server
+    networks:
+      - net-server
+    ports:
+      - "9000:3000"
+
+  ws-client:
+    build: ./client
+    networks:
+      - net-client
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

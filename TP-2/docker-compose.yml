@@ -1,0 +1,28 @@
+version: "3.8"
+
+networks:
+  net-client:
+  net-pair:
+  net-impair:
+
+services:
+  server-pair:
+    build: ./server-pair
+    networks:
+      - net-pair
+    ports:
+      - "8001:3000"
+
+  server-impair:
+    build: ./server-impair
+    networks:
+      - net-impair
+    ports:
+      - "8002:3000"
+
+  client:
+    build: ./client
+    networks:
+      - net-client
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

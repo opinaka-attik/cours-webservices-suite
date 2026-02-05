@@ -1,0 +1,18 @@
+services:
+  rest-server:
+    build: ./server-rest
+    ports:
+      - "3000:3000"
+    networks:
+      - net-server
+
+  rest-client:
+    build: ./client-rest
+    networks:
+      - net-client
+    environment:
+      API_URL: http://rest-server:3000
+
+networks:
+  net-server:
+  net-client:

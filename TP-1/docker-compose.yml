@@ -1,0 +1,10 @@
+services:
+  rest-server:
+    build: ./server-rest
+    ports:
+      - "3000:3000"
+
+  rest-client:
+    build: ./client-rest
+    environment:
+      API_URL: http://host.docker.internal:3000
