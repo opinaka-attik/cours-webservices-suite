@@ -1,0 +1,9 @@
+{
+  "name": "chat-groq",
+  "version": "1.0.0",
+  "description": "Client de chat Groq en JavaScript",
+  "main": "chat.js",
+  "scripts": {
+    "start": "node chat.js"
+  }
+}
